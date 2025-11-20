@@ -31,7 +31,8 @@ int main() {
     std::string s = "Hello World";
     std::cout << s;
     return 0;
-}```   
+}
+```   
 
 Стало:
 ```cpp
@@ -43,7 +44,8 @@ int main() {
     std::string s = "Hello World";
     std::cout << s;
     return 0;
-}```   
+}
+```   
 
 
 ## Ограничения
