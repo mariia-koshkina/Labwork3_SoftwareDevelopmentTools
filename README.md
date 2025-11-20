@@ -1,8 +1,8 @@
 # C++ Include Cleaner README
 
-Лабораторная работа №3. Разработка расширения для Visual Studio Code.
-Автор: Кошкина Мария Вячеславовна
-Группа: М3106
+Лабораторная работа №3. Разработка расширения для Visual Studio Code.  
+Автор: Кошкина Мария Вячеславовна  
+Группа: М3106  
 
 ## Описание
 
@@ -20,7 +20,8 @@
 
 Пример:
 
->Было:
+Было:
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -32,7 +33,8 @@ int main() {
     return 0;
 }
 
->Стало:
+Стало:
+```cpp
 #include <iostream>
 #include <string>
 
@@ -41,7 +43,7 @@ int main() {
     std::string s = "Hello World";
     std::cout << s;
     return 0;
-}
+}```
 
 
 ## Ограничения
@@ -49,13 +51,13 @@ int main() {
 2. Поддерживает только С++
 
 
-## Используемые инструменты для разработки
-Язык разработки: TypeScript
-Платформа: Visual Studio Code (1.106.2)
-Другие инструменты: 
-Node.js 
-npm (Node Package Manager)
-yo code — генератор расширений VS Code
+## Используемые инструменты для разработки  
+Язык разработки: TypeScript  
+Платформа: Visual Studio Code (1.106.2)  
+Другие инструменты:   
+Node.js   
+npm (Node Package Manager)  
+yo code — генератор расширений VS Code  
 
 
 **Хорошего использования!**
