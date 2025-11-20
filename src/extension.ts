@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { STANDARD_LIBRARY_MAP } from './standardLibraryMap';
 
+// Удаление однострочных и многострочных комментариев из текста
 function RemoveComments(text: string): string {
     let result = '';
     let i = 0;
@@ -71,7 +72,7 @@ function RemoveComments(text: string): string {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-
+    // Основная логика программы
 	console.log('Congratulations, your extension "cpp-include-cleaner" is now active!');
 
 	const disposable = vscode.commands.registerCommand('cpp-include-cleaner.helloWorld', async () => {
@@ -84,7 +85,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const text_with_comments = document.getText();
 		const text = RemoveComments(text_with_comments);
 
-		// Parsing
+		// Парсинг
 		const lines = text.split('\n');
 		const includes = [];
 		for (let i = 0; i < lines.length; i++) {
@@ -114,7 +115,7 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 		}
 
-		// Searching
+		// Поиск неиспользуемых библиотек в "очищенном" файле
 		const unused_includes = [];
 
         for (const include of includes) {
@@ -126,21 +127,21 @@ export function activate(context: vscode.ExtensionContext) {
                 continue;
             }
 
-            let isUsed = false;
+            let is_used = false;
             for (const symbol of symbols) {
                 if (text.includes(symbol)) {
-                    isUsed = true;
+                    is_used = true;
                     console.log(`Library ${header_name} is used via symbol: ${symbol}`);
                     break;
                 }
             }
-			if (!isUsed) {
+			if (!is_used) {
                 unused_includes.push(include);
                 console.log(`Library ${header_name} appears to be unused`);
             }
         }
 
-        // deleting
+        // Удаление неиспользуемых #include в исходном файле
 
         if (unused_includes.length > 0) {
             const original_lines = text_with_comments.split('\n');

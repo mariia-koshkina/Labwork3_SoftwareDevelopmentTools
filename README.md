@@ -1,71 +1,61 @@
-# cpp-include-cleaner README
+# C++ Include Cleaner README
 
-This is the README for your extension "cpp-include-cleaner". After writing up a brief description, we recommend including the following sections.
+Лабораторная работа №3. Разработка расширения для Visual Studio Code.
+Автор: Кошкина Мария Вячеславовна
+Группа: М3106
 
-## Features
+## Описание
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Плагин C++ Include Cleaner — это расширение для Visual Studio Code, предназначенное для автоматического удаления неиспользуемых директив #include в файлах C++.
 
-For example if there is an image subfolder under your extension project workspace:
+Плагин анализирует открытый C++-файл, определяет, какие заголовочные файлы (#include <...> или #include "...") не используются в коде, и удаляет их. Это ускоряет время компиляции и повышает "чистоту" кода.
 
-\!\[feature X\]\(images/feature-x.png\)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Функционал
+1. При вызове команды (Ctrl+Shift+P → Hello World) плагин получает содержимое активного файла.
+2. Все комментарии удаляются для корректного парсинга
+3. Проверка использования подкюченных директив
+4. Удаление неиспользуемых, но подключенных библиотек из исходного файла
+5. Уведомление пользователя об изменениях
 
-## Requirements
+Пример:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+>Было:
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cmath>
 
-## Extension Settings
+int main() {
+    std::string s = "Hello World";
+    std::cout << s;
+    return 0;
+}
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+>Стало:
+#include <iostream>
+#include <string>
 
-For example:
 
-This extension contributes the following settings:
+int main() {
+    std::string s = "Hello World";
+    std::cout << s;
+    return 0;
+}
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
 
-## Known Issues
+## Ограничения
+1. Не учитывает using namespace std; — плагин ищет только полные имена вида std::vector
+2. Поддерживает только С++
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
 
-## Release Notes
+## Используемые инструменты для разработки
+Язык разработки: TypeScript
+Платформа: Visual Studio Code (1.106.2)
+Другие инструменты: 
+Node.js 
+npm (Node Package Manager)
+yo code — генератор расширений VS Code
 
-Users appreciate release notes as you update your extension.
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+**Хорошего использования!**
