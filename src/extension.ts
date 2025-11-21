@@ -2,6 +2,15 @@ import * as vscode from 'vscode';
 import { STANDARD_LIBRARY_MAP } from './standardLibraryMap';
 
 // Удаление однострочных и многострочных комментариев из текста
+
+/**
+    Удаляет однострочные и многострочные комментарии из текста C++ файла.
+    Игнорирует символы, находящиеся внутри строковых литералов ('...' или "...").
+
+    @param {string} text - Исходный текст файла, из которого нужно удалить комментарии.
+    @returns {string} - Новый текст, в котором все комментарии удалены, а строки и другие элементы сохранены.
+ */
+
 function RemoveComments(text: string): string {
     let result = '';
     let i = 0;
@@ -70,6 +79,15 @@ function RemoveComments(text: string): string {
 
     return result;
 }
+
+// Активация расширения
+
+/**
+    Функция активации расширения. Выполняется при активации плагина.
+    Регистрирует команду 'cpp-include-cleaner.helloWorld'.
+ 
+    @param {vscode.ExtensionContext} context - Контекст расширения в VS Code.
+ */
 
 export function activate(context: vscode.ExtensionContext) {
     // Основная логика программы
@@ -178,5 +196,11 @@ export function activate(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(disposable);
 }
+
+// Деактивация расширения
+
+/**
+ Функция деактивации расширения. Выполняется при выгрузке плагина.
+ */
 
 export function deactivate() {}

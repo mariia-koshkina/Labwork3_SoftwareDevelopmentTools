@@ -53,6 +53,15 @@ int main() {
 2. Поддерживает только С++
 
 
+## Установка плагина
+1. Установите Visual Studio Code, Node.js, npm
+2. Клонируйте репозиторий ```git clone https://github.com/mariia-koshkina/Labwork3_SoftwareDevelopmentTools.git
+3. Откройте папку проекта cpp-include-cleaner и скомпилируйте
+4. Нажмите F5, откройте файл с кодом для использования плагина
+5. Нажмите Ctrl+Shift+P и выберите программу Hello World
+6. После выполнения работы плагина остановите программу
+
+
 ## Используемые инструменты для разработки  
 Язык разработки: TypeScript  
 Платформа: Visual Studio Code (1.106.2)  
